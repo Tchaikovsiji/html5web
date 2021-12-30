@@ -1,0 +1,407 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Roboto:wght@100;400;700&display=swap');
+/* import只能在utf-8下面,前面不可以有其他任何東西 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/* 不累加內距與邊框，外距照算 */
+}
+body{
+    font-family: Helvetica, Arial,"黑體-繁","Heiti TC","微軟正黑體","Microsoft JhengHei",
+     sans-serif;
+}
+img{
+    display: block;
+    width: 100%
+}
+.lightpink{
+    background-color: #ece1e8;
+}
+.lightblue{
+    background-color: #ecf5FF;
+}
+.lightgreen{
+    background-color: #dfefde;
+}
+#gotop{
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+#gotop .fas{
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 50px;
+}
+
+/* top bar */
+
+.top_header{
+    height: 100vh;/* 內容區全部範圍 */
+    background-color: rgb(255, 214, 225);
+    border: solid 25px white;
+    overflow: hidden;
+}
+.top_box{
+    position: relative;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 40px 0;
+}
+.logo{
+    width: 75px;
+}
+
+/* top bar */
+
+.top_header nav{
+    display: flex;
+    flex-direction: column;/* 主軸方向-垂直 */
+    align-items: flex-end;/* 副軸方向-水平靠右 */
+}
+nav ul{
+   display: flex;/* 原本垂直排列會因為display flex變成水平排列 */
+   /* 主軸方向-水平 */
+   /* 主軸方向-水平靠右 */
+   list-style-type: none;
+}
+nav .icon li{
+    width: 35px;/* row水平排列則為寬度 */
+    margin: 0 0 20px 10px;
+    /*四個數字 上 右 下 左
+      三個數字 上 左右 下
+      兩個數字 上下 左右*/
+}
+nav .menu li{
+    width: 100px;
+    height: 35px;
+}
+nav .menu a{
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #666;
+    text-decoration: none;
+    border: solid 1px transparent;
+}
+nav .menu a:hover{
+    background-color: rgba(255, 255, 255, 0.651);
+    border: solid 1px #666;
+}
+
+/* banner */
+.banner {
+    display: flex;
+    justify-content: space-between;
+}
+.banner figure{
+    width: 45%;
+}
+.banner .name{
+    margin-top: 20vh;
+    margin-left: 15%;
+}
+.banner .name h2{
+    font-family: "noto sans TC",sans-serif;
+    font-weight: 100;
+    font-size: 3rem;
+}
+.banner .name h3{
+    font-family: "shadows Into light",cursive;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: .19rem;
+}
+.top_header video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: opacity(20%) brightness(200%) saturate(70%);
+}
+/* 主要內容共用區 */
+section{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section h2{
+    color: #444;
+    font-size: 2rem;
+    margin: 50px 0 20px;
+    padding: 15px 20px;
+    text-align: center;
+    border-top: solid 5px #666;
+}
+/* Service區 */
+/* service 和 news 因版面相似語法部分可以共用 */
+.list_box{
+    display: flex;
+    width: 80%;
+}
+.item{
+    flex: 1;
+    height: 65vh;
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;/* 非常重要 */
+}
+/* 同意頁面重複語法可以共用 */
+.service_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+}
+.service_item1{
+    background-image: url(./images/pt_svc1.jpg);
+}
+.service_item2{
+    background-image: url(./images/pt_svc2.jpg);
+}
+.service_item3{
+    background-image: url(./images/pt_svc3.jpg);
+}
+.service_title{
+    display: block;
+    background-color: #00000069;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+}
+.service_title h3{
+    font-size: 1.4rem;
+}
+.service_title p{
+    letter-spacing: .1rem;
+    /* 單行省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* NEWS區 */
+#news article{
+    box-shadow: 2px 2px 5px #ddd
+}
+#news figure{
+    height: 40%;
+    overflow: hidden;
+}
+#news figure img{
+    height: 100%;
+    object-fit: cover;
+}
+#news h3{
+    color: #666;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 20px 30px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #666;
+}
+#news p{
+    margin: 0 30px;
+    line-height: 1.2rem;/* 避免中英文行高不同產生落差 */
+    text-align: justify;
+    /* 以下為多行省略語法 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;/* 尚未被正式承認 */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+}
+.more{
+    border: solid 1px #666;
+    padding: 5px 10px;
+    margin: 20px auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    text-decoration: none;
+    color: #555;
+}
+/* about區 */
+#about{
+    background-image: url(images/pt_about.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.about_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;/* 除了預設stretch自動拉伸之外的值，都吃內容的尺寸 */
+    width: 60%;
+    height: 100vh;
+    background-color: rgba(186, 148, 248, 0.5);
+    padding: 0 80px;
+}
+.about_box p{
+    overflow: auto;
+    margin-bottom: 60px;
+    line-height: 1.2rem;
+    color: #666;
+    letter-spacing: 0.05rem;
+}
+/* scrollbox卷軸樣式 */
+/* .scrollbox {
+    poisition: relative;
+    width: 320px;
+    height: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    overflow: scroll;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  } */
+  
+  .scrollbox::-webkit-scrollbar {
+    width: 10px;
+    background: #999;
+  }
+  
+  .scrollbox::-webkit-scrollbar:horizontal {
+    height: 10px;
+  }
+  
+  .scrollbox::-webkit-scrollbar-button {
+    width: 10px;
+    height: 10px;
+    background: #666;
+  }
+  
+  .scrollbox::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+  }
+  
+  .scrollbox::-webkit-scrollbar-corner {
+    background: #ddd;
+  }
+  /* video 區 */
+  #video div{
+      height: 70vh;
+  }
+  #video video{
+      width: 100%;
+      height: 100%;
+  }
+  /* contact區 */
+  #contact{
+      position: relative;
+      overflow: hidden;
+  }
+  #contact_form{
+      display: flex;
+      flex-direction: column;
+      width: 35%;
+  }
+  #contact_form label{
+      margin: 25px 0 10px;
+      color: #666;
+  }
+  #contact_form input,#contact_form textarea{
+      border: solid;
+  }
+  .flower_r{
+      width: 320px;
+      position: absolute;
+      top: 50vh;
+      left: 0;
+  }
+  .flower_w{
+      width: 300px;
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      transform: rotate(-25deg);
+
+  }
+
+  /* css button 抖動按鈕 */
+button {
+    /* position: relative; */
+    /* outline: none; */
+    /* text-decoration: none; */
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* text-transform: uppercase; */
+    height: 60px;
+    width: 210px;
+    /* opacity: 1; */
+    background-color: #ffffff;
+    border: 1px solid rgb(38, 82, 13);
+    margin: 50px auto 0;
+  }
+  button span {
+    color: rgb(38, 82, 13);
+    font-size: 12px;
+    /* font-weight: 500; */
+    letter-spacing: 0.7px;
+  }
+  button:hover {
+    animation: rotate 0.7s ease-in-out both;
+  }
+  button:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    25% {
+      transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+    50% {
+      transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+    75% {
+      transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+    100% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+  @keyframes storm {
+    0% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+    25% {
+      transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+    50% {
+      transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+    75% {
+      transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+  }
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding: 20px 80px 20px 20px;
+}
